@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر موعز للتطبيقات والألعاب | Moaaz Store Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- القائمة الجانبية Navigation Sidebar -->
+        <aside class="sidebar">
+            <div class="brand-logo">
+                <i class="fa-solid fa-gamepad logo-icon"></i>
+                <div class="logo-text">
+                    <h2>متجر موعز</h2>
+                    <span>Moaaz Store Pro</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-tab="home">
+                    <i class="fa-solid fa-house"></i>
+                    <span>الرئيسية</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="games">
+                    <i class="fa-solid fa-dice-d20"></i>
+                    <span>الألعاب التفاعلية</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="apps">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <span>تطبيقات الموبايل</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="tools">
+                    <i class="fa-solid fa-microchip"></i>
+                    <span>أدوات وبرمجيات</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="favorites">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>المفضلة</span>
+                </a>
+            </nav>
+
+            <div class="system-status">
+                <div class="status-header">
+                    <i class="fa-solid fa-database"></i>
+                    <span>Supabase Backend</span>
+                </div>
+                <div class="status-indicator online">
+                    <span class="dot"></span>
+                    <span>متصل بالنظام</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- المحتوى الرئيسي Main Content Area -->
+        <main class="main-content">
+            <!-- الهيدر العلوي Top Header -->
+            <header class="top-bar">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="ابحث عن ألعاب، تطبيقات، أو أدوات برمجية...">
+                    <button class="clear-btn" id="clearSearch"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <div class="user-actions">
+                    <div class="stats-badge">
+                        <i class="fa-solid fa-download"></i>
+                        <span id="totalDownloadsCount">14,280</span> تنزيل
+                    </div>
+                    <button class="icon-btn" id="themeToggle" title="تغيير الثيم">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- قسم البانر الرئيسي Hero Banner -->
+            <section class="hero-section">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <span class="hero-badge"><i class="fa-solid fa-rocket"></i> الإصدار المتكامل 2026</span>
+                    <h1 class="hero-title">منصة ألعاب وتطبيقات موعز الشاملة</h1>
+                    <p class="hero-description">
+                        تجميعة شاملة لكل ألعابك وتطبيقاتك البرمجية، مصممة بأحدث تقنيات الويب لتكون جاهزة للتشغيل المباشر أو التحويل إلى تطبيقات Android (APK).
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn primary-btn" onclick="scrollToSection('gamesSection')">
+                            <i class="fa-solid fa-play"></i> ابدأ اللعب المباشر
+                        </button>
+                        <button class="btn secondary-btn" onclick="scrollToSection('appsSection')">
+                            <i class="fa-solid fa-circle-down"></i> استكشف التطبيقات
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- تصفية الفئات Category Filter -->
+            <div class="category-pills" id="categoryPills">
+                <button class="pill active" data-filter="all"><i class="fa-solid fa-border-all"></i> الكل</button>
+                <button class="pill" data-filter="games"><i class="fa-solid fa-gamepad"></i> الألعاب</button>
+                <button class="pill" data-filter="entertainment"><i class="fa-solid fa-face-laugh-beam"></i> ترفيه ومرح</button>
+                <button class="pill" data-filter="tools"><i class="fa-solid fa-wrench"></i> أدوات وهندسة</button>
+                <button class="pill" data-filter="simulation"><i class="fa-solid fa-microchip"></i> محاكاة وروبوتات</button>
+            </div>
+
+            <!-- قسم التطبيقات والألعاب Featured App Cards Grid -->
+            <section class="section" id="appsSection">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-layer-group"></i> مكتبة البرمجيات والتطبيقات</h2>
+                    <span class="count-badge" id="cardsCount">6 تطبيقات</span>
+                </div>
+
+                <div class="cards-grid" id="appsGrid">
+                    <!-- كارت لعبة الأصحاب -->
+                    <div class="app-card" data-category="games" data-name="لعبه الاصحاب">
+                        <div class="card-banner game-bg-1">
+                            <div class="card-badge">لعبة شعبية</div>
+                            <i class="fa-solid fa-users card-main-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3>لعبة الأصحاب (Friends Challenge)</h3>
+                            <span class="card-cat">ألعاب جماعية ومرح</span>
+                            <p>لعبة تحديات جماعية ممتازة للعب مع الأصدقاء والعائلة، تحتوي على أسئلة ومقالب ومواقف ممتعة.</p>
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-download"></i> 4.5K</span>
+                                <span><i class="fa-solid fa-star"></i> 4.9</span>
+                                <span><i class="fa-solid fa-file-code"></i> APK</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="action-btn download" onclick="triggerDownload('لعبة الأصحاب', 'friends_game.apk')">
+                                <i class="fa-solid fa-download"></i> تحميل APK
+                            </button>
+                            <button class="action-btn fav" onclick="toggleFavorite(this, 'لعبة الأصحاب')">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- كارت Mizo Play -->
+                    <div class="app-card" data-category="games" data-name="Mizo Play">
+                        <div class="card-banner game-bg-2">
+                            <div class="card-badge">منصة ممتازة</div>
+                            <i class="fa-solid fa-gamepad card-main-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3>Mizo Play - منصة الألعاب</h3>
+                            <span class="card-cat">منصة ألعاب متكاملة</span>
+                            <p>منصة ألعاب مصغرة تحتوي على ألعاب سرعة ونقر وألغاز تفاعلية مجهزة للعمل على الهواتف والكمبيوتر.</p>
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-download"></i> 6.1K</span>
+                                <span><i class="fa-solid fa-star"></i> 5.0</span>
+                                <span><i class="fa-solid fa-globe"></i> Web / APK</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="action-btn download" onclick="triggerDownload('Mizo Play', 'mizo_play.apk')">
+                                <i class="fa-solid fa-download"></i> تحميل APK
+                            </button>
+                            <button class="action-btn fav" onclick="toggleFavorite(this, 'Mizo Play')">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- كارت تطبيق هزّرها -->
+                    <div class="app-card" data-category="entertainment" data-name="هزّرها">
+                        <div class="card-banner game-bg-3">
+                            <div class="card-badge">كوميديا</div>
+                            <i class="fa-solid fa-face-laugh-squint card-main-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3>تطبيق هزّرها (Hazarha)</h3>
+                            <span class="card-cat">ترفيه ونكات</span>
+                            <p>تطبيق فرفشة ونكت ومقالب صوتية ونصوص مضحكة لمشاركتها مع أصحابك في أي وقت.</p>
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-download"></i> 2.8K</span>
+                                <span><i class="fa-solid fa-star"></i> 4.7</span>
+                                <span><i class="fa-solid fa-mobile"></i> APK</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="action-btn download" onclick="triggerDownload('تطبيق هزّرها', 'hazarha.apk')">
+                                <i class="fa-solid fa-download"></i> تحميل APK
+                            </button>
+                            <button class="action-btn fav" onclick="toggleFavorite(this, 'تطبيق هزّرها')">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- كارت متحكم الأردوينو L293D -->
+                    <div class="app-card" data-category="simulation" data-name="تحكم الأردوينو والسيارات">
+                        <div class="card-banner game-bg-4">
+                            <div class="card-badge">هندسة وبرمجة</div>
+                            <i class="fa-solid fa-robot card-main-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3>Arduino L293D Motor Controller</h3>
+                            <span class="card-cat">محاكاة وروبوتات</span>
+                            <p>أداة التحكم بالسيارات الذكية والمحركات عبر البلوتوث مع شاشة محاكاة الأوامر والأردوينو.</p>
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-download"></i> 1.9K</span>
+                                <span><i class="fa-solid fa-star"></i> 4.8</span>
+                                <span><i class="fa-solid fa-code"></i> C++ / Web</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="action-btn download" onclick="triggerDownload('أداة الأردوينو', 'arduino_controller.zip')">
+                                <i class="fa-solid fa-download"></i> تحميل الملفات
+                            </button>
+                            <button class="action-btn fav" onclick="toggleFavorite(this, 'أداة الأردوينو')">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- كارت أداة ضغط وتصدير APK WebIntoApp -->
+                    <div class="app-card" data-category="tools" data-name="مُحول WebIntoApp Builder">
+                        <div class="card-banner game-bg-5">
+                            <div class="card-badge">أدوات مبرمجين</div>
+                            <i class="fa-solid fa-box-archive card-main-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3>WebIntoApp Packager & Helper</h3>
+                            <span class="card-cat">تطوير تطبيقات</span>
+                            <p>أداة مساعدة لإعداد ملفات الـ HTML والـ ZIP وتجميعها وتجهيزها للرفع على خدمات WebInto.app بسهولة.</p>
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-download"></i> 3.2K</span>
+                                <span><i class="fa-solid fa-star"></i> 4.9</span>
+                                <span><i class="fa-solid fa-gears"></i> Tool</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="action-btn download" onclick="triggerDownload('WebIntoApp Builder', 'webintoapp_helper.zip')">
+                                <i class="fa-solid fa-download"></i> تحميل الأداة
+                            </button>
+                            <button class="action-btn fav" onclick="toggleFavorite(this, 'WebIntoApp Builder')">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- كارت استوديو الصوت والأغاني AI Audio -->
+                    <div class="app-card" data-category="tools" data-name="استوديو الصوت والموسيقى">
+                        <div class="card-banner game-bg-6">
+                            <div class="card-badge">صوتيات AI</div>
+                            <i class="fa-solid fa-music card-main-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3>Audio & Vocal Effects Studio</h3>
+                            <span class="card-cat">صوت ومؤثرات</span>
+                            <p>مؤثرات صوتية واستوديو نغمات متكامل مستوحى من أدوات BandLab وSuno للإنتاج الصوتي.</p>
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-download"></i> 1.1K</span>
+                                <span><i class="fa-solid fa-star"></i> 4.6</span>
+                                <span><i class="fa-solid fa-wand-magic-sparkles"></i> AI Tool</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="action-btn download" onclick="triggerDownload('استوديو الصوت', 'audio_studio.zip')">
+                                <i class="fa-solid fa-download"></i> تحميل الأداة
+                            </button>
+                            <button class="action-btn fav" onclick="toggleFavorite(this, 'استوديو الصوت')">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- قسم الألعاب المباشرة أونلاين Interactive Mini-Games Suite -->
+            <section class="section games-interactive-section" id="gamesSection">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-gamepad"></i> الألعاب المباشرة التفاعلية (المدمجة)</h2>
+                    <span class="count-badge">3 ألعاب داخلية</span>
+                </div>
+
+                <div class="games-tabs-container">
+                    <div class="game-selector-buttons">
+                        <button class="g-btn active" onclick="switchGame('clickerGame')"><i class="fa-solid fa-hand-pointer"></i> لعبة النقر السريع</button>
+                        <button class="g-btn" onclick="switchGame('memoryGame')"><i class="fa-solid fa-brain"></i> لعبة الذاكرة المطابقة</button>
+                        <button class="g-btn" onclick="switchGame('carSimGame')"><i class="fa-solid fa-car"></i> محاكي الأردوينو L293D</button>
+                    </div>
+
+                    <!-- اللعبة 1: النقر السريع -->
+                    <div class="game-viewport active" id="clickerGame">
+                        <div class="game-card-inner">
+                            <h3>🎮 لعبة النقر السريع وتحدي السكور (Clicker Challenge)</h3>
+                            <p>اضغط بأسرع ما يمكن لتجميع النقاط قبل انتهاء العداد!</p>
+                            
+                            <div class="game-dashboard">
+                                <div class="stat-box">
+                                    <span class="label">النقاط الحالية</span>
+                                    <span class="value" id="clickScore">0</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="label">الوقت المتبقي</span>
+                                    <span class="value" id="clickTimer">15</span>ث
+                                </div>
+                                <div class="stat-box">
+                                    <span class="label">أعلى سكور</span>
+                                    <span class="value" id="clickHighScore">0</span>
+                                </div>
+                            </div>
+
+                            <div class="game-controls">
+                                <button class="click-target-btn" id="clickerBtn" disabled onclick="registerClick()">
+                                    <i class="fa-solid fa-bolt"></i> انقر هنا بسرعععة!
+                                </button>
+                                <div class="game-btn-group">
+                                    <button class="btn primary-btn" onclick="startClickerGame()"><i class="fa-solid fa-play"></i> بدء التحدي</button>
+                                    <button class="btn secondary-btn" onclick="resetClickerGame()"><i class="fa-solid fa-rotate-right"></i> إعادة ضبط</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- اللعبة 2: اختبار الذاكرة -->
+                    <div class="game-viewport" id="memoryGame">
+                        <div class="game-card-inner">
+                            <h3>🧠 لعبة مطابقة الكروت والذاكرة (Memory Match)</h3>
+                            <p>اعثر على كل أزواج الأيقونات المتشابهة بأقل عدد من المحاولات!</p>
+                            
+                            <div class="game-dashboard">
+                                <div class="stat-box">
+                                    <span class="label">الحركات</span>
+                                    <span class="value" id="memoryMoves">0</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="label">الأزواج المكتشفة</span>
+                                    <span class="value" id="memoryPairs">0 / 6</span>
+                                </div>
+                            </div>
+
+                            <div class="memory-grid" id="memoryGrid"></div>
+
+                            <button class="btn primary-btn" style="margin-top:1.5rem;" onclick="initMemoryGame()">
+                                <i class="fa-solid fa-shuffle"></i> إعادة خلط وبدء اللعبة
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- اللعبة 3: محاكي الأردوينو L293D -->
+                    <div class="game-viewport" id="carSimGame">
+                        <div class="game-card-inner">
+                            <h3>🤖 محاكي تحريك موتورات السيارة (Arduino + L293D Driver)</h3>
+                            <p>تحكم في اتجاه المحركات ومحاكاة إشارات الـ PWM للبلوتوث</p>
+
+                            <div class="simulator-layout">
+                                <div class="car-visualizer">
+                                    <div class="car-body-box">
+                                        <div class="wheel top-left" id="wheelTL"></div>
+                                        <div class="wheel top-right" id="wheelTR"></div>
+                                        <div class="chassis">
+                                            <i class="fa-solid fa-microchip"></i>
+                                            <span id="carStateStatus">متوقف STOP</span>
+                                        </div>
+                                        <div class="wheel bottom-left" id="wheelBL"></div>
+                                        <div class="wheel bottom-right" id="wheelBR"></div>
+                                    </div>
+                                </div>
+
+                                <div class="remote-controller">
+                                    <div class="d-pad">
+                                        <button class="d-btn up" onclick="sendCarCommand('FORWARD')"><i class="fa-solid fa-arrow-up"></i></button>
+                                        <div class="middle-row">
+                                            <button class="d-btn left" onclick="sendCarCommand('LEFT')"><i class="fa-solid fa-arrow-left"></i></button>
+                                            <button class="d-btn stop" onclick="sendCarCommand('STOP')"><i class="fa-solid fa-hand"></i></button>
+                                            <button class="d-btn right" onclick="sendCarCommand('RIGHT')"><i class="fa-solid fa-arrow-right"></i></button>
+                                        </div>
+                                        <button class="d-btn down" onclick="sendCarCommand('BACKWARD')"><i class="fa-solid fa-arrow-down"></i></button>
+                                    </div>
+                                    <div class="terminal-log">
+                                        <h4>سجل أوامر البلوتوث (Serial Monitor)</h4>
+                                        <div class="log-screen" id="serialLog">
+                                            > System Initialized...<br>
+                                            > L293D Motor Driver Ready.<br>
+                                            > Waiting for Serial Input...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- الإشعارات التفاعلية Toast Notification -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
